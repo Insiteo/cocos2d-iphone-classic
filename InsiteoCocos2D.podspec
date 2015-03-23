@@ -89,7 +89,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "cocos2d", "cocos2d/Platforms", "cocos2d/Support", "CocosDenshion", "external"
+  s.source_files  = "cocos2d/**", "CocosDenshion/**", "external/**"
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
