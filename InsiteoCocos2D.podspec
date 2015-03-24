@@ -141,20 +141,19 @@ Pod::Spec.new do |s|
     cd.source_files = "CocosDenshion/**/*"
   end
   
-  s.subspec 'GL' do |gl|
-    gl.source_files = "external/kazmath/src/GL/**/*"
-    gl.public_header_files = "external/kazmath/include/kazmath/GL/*.h"
-  end
-  
-  s.subspec 'kazmath' do |ka|
-    ka.source_files = "external/kazmath/src/*"
-    ka.public_header_files = "external/kazmath/include/kazmath/*.h"
-    ka.dependency 'InsiteoCocos2D/GL'
-  end
-  
   s.subspec 'external' do |ex|
     # ex.source_files = "external/**/*"
-    ex.dependency 'InsiteoCocos2D/kazmath'
+    
+    ex.subspec 'kazmath' do |ka|
+    	ka.source_files = "external/kazmath/src/*"
+    	ka.public_header_files = "external/kazmath/include/kazmath/*.h"
+    	ka.dependency 'InsiteoCocos2D/GL'
+    
+    	ka.subspec 'GL' do |gl|
+    		gl.source_files = "external/kazmath/src/GL/**/*"
+    		gl.public_header_files = "external/kazmath/include/kazmath/GL/*.h"
+  		end
+  	end
   end
 
 end
