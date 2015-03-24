@@ -139,7 +139,7 @@ Pod::Spec.new do |s|
     co.source_files = "cocos2d/*"
     
     co.subspec 'Platforms' do |pl|
-    	pl.source_files = "Platforms"
+    	pl.header_dir = "Platforms"
     	pl.source_files = "cocos2d/Platforms/*"
     
     	pl.subspec 'iOS' do |io|
