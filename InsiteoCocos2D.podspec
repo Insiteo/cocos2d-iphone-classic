@@ -162,11 +162,30 @@ Pod::Spec.new do |s|
     
     ex.subspec 'kazmath' do |ka|
     	ka.source_files = "external/kazmath/src/*", "external/kazmath/include/kazmath/*"
-    
-    	ka.subspec 'GL' do |gl|
-    		gl.source_files = "external/kazmath/src/GL/**/*", "external/kazmath/include/kazmath/GL/*"
+    	
+    	ka.subspec 'src' do |sr|
+    		sr.source_files = "external/kazmath/src/*.c"
+    		
+    		sr.subspec 'GL' do |gls|
+    			gls.source_files = "external/kazmath/src/GL/*.c"
+  			end
+  			
   		end
+  		
+  		ka.subspec 'include' do |in|
+  		
+  			in.subspec 'kazmath' do |ka2|
+    			ka2.source_files = "external/kazmath/include/kazmath/*.h"
+    			ka2.subspec 'GL' do |glh|
+    				glh.source_files = "external/kazmath/include/kazmath/GL/*.h"
+  				end
+  				
+  			end
+  			
+  		end
+  		
   	end
+  	
   end
 
 end
