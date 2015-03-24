@@ -147,7 +147,6 @@ Pod::Spec.new do |s|
     ex.subspec 'kazmath' do |ka|
     	ka.source_files = "external/kazmath/src/*"
     	ka.public_header_files = "external/kazmath/include/kazmath/*.h"
-    	ka.dependency 'InsiteoCocos2D/GL'
     
     	ka.subspec 'GL' do |gl|
     		gl.source_files = "external/kazmath/src/GL/**/*"
