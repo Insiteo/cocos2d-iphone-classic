@@ -132,7 +132,7 @@ Pod::Spec.new do |s|
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
-  
+    
   s.subspec 'cocos2d' do |co|
     co.source_files = "cocos2d/**/*"
   end
@@ -141,8 +141,20 @@ Pod::Spec.new do |s|
     cd.source_files = "CocosDenshion/**/*"
   end
   
+  s.subspec 'GL' do |gl|
+    co.source_files = "external/kazmath/src/GL/**/*"
+    co.public_header_files = "external/kazmath/include/kazmath/GL/*.h"
+  end
+  
+  s.subspec 'kazmath' do |ka|
+    ka.source_files = "external/kazmath/src/*"
+    ka.public_header_files = "external/kazmath/include/kazmath/*.h"
+    ka.dependency 'InsiteoCocos2D/GL'
+  end
+  
   s.subspec 'external' do |ex|
-    ex.source_files = "external/**/*"
+    # ex.source_files = "external/**/*"
+    ex.dependency 'InsiteoCocos2D/kazmath'
   end
 
 end
