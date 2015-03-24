@@ -131,6 +131,8 @@ Pod::Spec.new do |s|
   s.requires_arc = false
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
+  # s.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/external/kazmath/include/**" }
+  
   # s.dependency "JSONKit", "~> 1.4"
     
   s.subspec 'cocos2d' do |co|
@@ -160,9 +162,7 @@ Pod::Spec.new do |s|
   s.subspec 'external' do |ex|
     # ex.source_files = "external/**/*"
     
-    ex.subspec 'kazmath' do |ka|
-    	ka.xcconfig = { 'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/#{s.name}/external/kazmath/include/**"' }
-        	
+    ex.subspec 'kazmath' do |ka|        	
     	ka.subspec 'src' do |sr|
     		sr.source_files = "external/kazmath/src/*.c"
     		
@@ -175,8 +175,11 @@ Pod::Spec.new do |s|
   		ka.subspec 'include' do |inc|
   		
   			inc.subspec 'kazmath' do |ka2|
+  				inc.header_dir = "kazmath"
+  				
     			ka2.source_files = "external/kazmath/include/kazmath/*.h"
     			ka2.subspec 'GL' do |glh|
+  					glh.header_dir = "kazmath/GL"
     				glh.source_files = "external/kazmath/include/kazmath/GL/*.h"
   				end
   				
