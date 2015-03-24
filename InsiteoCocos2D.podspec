@@ -151,18 +151,39 @@ Pod::Spec.new do |s|
   	co.subspec 'Support' do |su|
     	su.source_files = "cocos2d/Support/*"
   	end
-  	
-  	co.subspec 'kazmath' do |ka|
-    	ka.source_files = "external/kazmath/include/kazmath/*.h", "external/kazmath/src/*.c"
-    	ka.subspec 'GL' do |gl|
-    		gl.source_files = "external/kazmath/include/kazmath/GL/*.h", "external/kazmath/src/GL/*.c"
-  		end
-  	end
-  	
   end
   
   s.subspec 'CocosDenshion' do |cd|
-    cd.source_files = "CocosDenshion/**/*"  	
+    cd.source_files = "CocosDenshion/**/*"
+  end
+  
+  s.subspec 'external' do |ex|
+    # ex.source_files = "external/**/*"
+    
+    ex.subspec 'kazmath' do |ka|    	
+    	ka.subspec 'src' do |sr|
+    		sr.source_files = "external/kazmath/src/*.c"
+    		
+    		sr.subspec 'GL' do |gls|
+    			gls.source_files = "external/kazmath/src/GL/*.c"
+  			end
+  			
+  		end
+  		
+  		ka.subspec 'include' do |inc|
+  		
+  			inc.subspec 'kazmath' do |ka2|
+    			ka2.source_files = "external/kazmath/include/kazmath/*.h"
+    			ka2.subspec 'GL' do |glh|
+    				glh.source_files = "external/kazmath/include/kazmath/GL/*.h"
+  				end
+  				
+  			end
+  			
+  		end
+  		
+  	end
+  	
   end
 
 end
