@@ -172,9 +172,9 @@ Pod::Spec.new do |s|
   			
   		end
   		
-  		ka.subspec 'include' do |in|
+  		ka.subspec 'include' do |inc|
   		
-  			in.subspec 'kazmath' do |ka2|
+  			inc.subspec 'kazmath' do |ka2|
     			ka2.source_files = "external/kazmath/include/kazmath/*.h"
     			ka2.subspec 'GL' do |glh|
     				glh.source_files = "external/kazmath/include/kazmath/GL/*.h"
