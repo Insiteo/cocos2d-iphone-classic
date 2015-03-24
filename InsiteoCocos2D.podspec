@@ -142,8 +142,8 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'GL' do |gl|
-    co.source_files = "external/kazmath/src/GL/**/*"
-    co.public_header_files = "external/kazmath/include/kazmath/GL/*.h"
+    gl.source_files = "external/kazmath/src/GL/**/*"
+    gl.public_header_files = "external/kazmath/include/kazmath/GL/*.h"
   end
   
   s.subspec 'kazmath' do |ka|
