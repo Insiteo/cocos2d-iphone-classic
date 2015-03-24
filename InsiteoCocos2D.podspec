@@ -136,44 +136,32 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
     
   s.subspec 'cocos2d' do |co|
-  	co.requires_arc = false
     co.source_files = "cocos2d/*"
     
     co.subspec 'Platforms' do |pl|
-    	pl.requires_arc = false
     	pl.source_files = "cocos2d/Platforms/*"
     
     	pl.subspec 'iOS' do |io|
-    		io.requires_arc = false
     		io.source_files = "cocos2d/Platforms/iOS/*"
   		end
   		
   		pl.subspec 'Mac' do |ma|
-  			ma.requires_arc = false
     		ma.source_files = "cocos2d/Platforms/Mac/*"
   		end
   	end
   	
   	co.subspec 'Support' do |su|
-  		su.requires_arc = false
     	su.source_files = "cocos2d/Support/*"
   	end
   end
   
   s.subspec 'CocosDenshion' do |cd|
-  	cd.requires_arc = false
     cd.source_files = "CocosDenshion/**/*"
   end
   
   s.subspec 'external' do |ex|
-  	ex.requires_arc = false
-    # ex.source_files = "external/**/*"
-    
-    ex.subspec 'kazmath' do |ka|
-    	ka.requires_arc = false
-    	
+    ex.subspec 'kazmath' do |ka|    	
     	ka.subspec 'src' do |sr|
-    		sr.requires_arc = false
     		sr.source_files = "external/kazmath/src/*.c"
     		
     		sr.subspec 'GL' do |gls|
@@ -182,16 +170,12 @@ Pod::Spec.new do |s|
   			
   		end
   		
-  		ka.subspec 'include' do |inc|
-  			inc.requires_arc = false
-  			
+  		ka.subspec 'include' do |inc|  			
   			inc.subspec 'kazmath' do |ka2|
-  				ka2.requires_arc = false
   				ka2.header_dir = "kazmath"
   				
     			ka2.source_files = "external/kazmath/include/kazmath/*.h"
     			ka2.subspec 'GL' do |glh|
-    				glh.requires_arc = false
   					glh.header_dir = "kazmath/GL"
     				glh.source_files = "external/kazmath/include/kazmath/GL/*.h"
   				end
