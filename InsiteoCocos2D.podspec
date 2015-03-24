@@ -134,7 +134,23 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
     
   s.subspec 'cocos2d' do |co|
-    co.source_files = "cocos2d/**/*"
+    co.source_files = "cocos2d/*"
+    
+    co.subspec 'Platforms' do |pl|
+    	pl.source_files = "cocos2d/Platforms/*"
+    
+    	pl.subspec 'iOS' do |io|
+    		io.source_files = "cocos2d/Platforms/iOS/*"
+  		end
+  		
+  		pl.subspec 'Mac' do |ma|
+    		ma.source_files = "cocos2d/Platforms/Mac/*"
+  		end
+  	end
+  	
+  	co.subspec 'Support' do |su|
+    	su.source_files = "cocos2d/Support/*"
+  	end
   end
   
   s.subspec 'CocosDenshion' do |cd|
@@ -145,12 +161,10 @@ Pod::Spec.new do |s|
     # ex.source_files = "external/**/*"
     
     ex.subspec 'kazmath' do |ka|
-    	ka.source_files = "external/kazmath/src/*"
-    	ka.public_header_files = "external/kazmath/include/kazmath/*.h"
+    	ka.source_files = "external/kazmath/src/*", "external/kazmath/include/kazmath/*"
     
     	ka.subspec 'GL' do |gl|
-    		gl.source_files = "external/kazmath/src/GL/**/*"
-    		gl.public_header_files = "external/kazmath/include/kazmath/GL/*.h"
+    		gl.source_files = "external/kazmath/src/GL/**/*", "external/kazmath/include/kazmath/GL/*"
   		end
   	end
   end
