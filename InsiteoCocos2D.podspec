@@ -160,9 +160,7 @@ Pod::Spec.new do |s|
   s.subspec 'external' do |ex|
     # ex.source_files = "external/**/*"
     
-    ex.subspec 'kazmath' do |ka|
-    	ka.source_files = "external/kazmath/src/*", "external/kazmath/include/kazmath/*"
-    	
+    ex.subspec 'kazmath' do |ka|    	
     	ka.subspec 'src' do |sr|
     		sr.source_files = "external/kazmath/src/*.c"
     		
