@@ -161,7 +161,7 @@ Pod::Spec.new do |s|
     # ex.source_files = "external/**/*"
     
     ex.subspec 'kazmath' do |ka|
-   		ka.public_header_files = "external/kazmath/include"
+    	ka.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/external/kazmath/include/**" }
         	
     	ka.subspec 'src' do |sr|
     		sr.source_files = "external/kazmath/src/*.c"
