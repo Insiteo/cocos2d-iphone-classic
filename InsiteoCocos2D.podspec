@@ -154,6 +154,7 @@ Pod::Spec.new do |s|
   	end
   	
   	co.subspec 'Support' do |su|
+    	su.header_dir = "Support"
     	su.source_files = "cocos2d/Support/*"
   	end
   end
